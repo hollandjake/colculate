@@ -1,5 +1,11 @@
 # colculate
 
+## 0.2.0
+
+### Minor Changes
+
+- [`d869379`](https://github.com/hollandjake/colculate/commit/d8693798728217c1ef9594a11083a05c9897df53) Thanks [@hollandjake](https://github.com/hollandjake)! - Added color blending
+
 ## 0.1.0
 
 ### Minor Changes
