@@ -1,11 +1,10 @@
 <!-- markdownlint-disable-next-line -->
 <div align="center">
-  <p>
-    <a href="https://github.com/hollandjake/colculate#readme" rel="noopener" target="_blank">
-      <img width="150" height="150" title="Colculate" src="icon.png" alt="Logo">
-    </a>
-  </p>
-  <h1>Colculate</h1>
+
+[<img width="150" height="150" title="Colculate" src="https://github.com/hollandjake/colculate/raw/main/icon.png" alt="Logo">](https://github.com/hollandjake/colculate#readme)
+
+# Colculate
+
 </div>
 
 > A JavaScript library for CSS4 compliant color parsing and transformation
