@@ -1,3 +1,3 @@
-import {SRGBFormat} from './srgb';
+import {SRGBBlendMode} from './colorspaces';
 
-export type Format = SRGBFormat;
+export type Format = SRGBBlendMode;

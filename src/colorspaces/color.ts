@@ -1,4 +1,4 @@
-import {ColorSpace, Format} from '../types';
+import {BlendMode, BlendModeColorSpaceMap, ColorSpace, Format} from '../types';
 import {clamp01} from '../utils';
 
 export abstract class Color {
@@ -27,4 +27,24 @@ export abstract class Color {
    * @param format An optional format type to force a format
    */
   abstract toString(format?: Format): string;
+
+  /**
+   * Linearly interpolate between this and another color by an amount following a particular blending algorithm
+   *
+   * If the colorspace of both colors don't match, the `other` color will be mapped to the colorspace of `this` color
+   *
+   * @param other - The other {@link Color} to interpolate with
+   * @param f - The interpolation factor
+   * @param blendMode - Optional blending algorithm to use, adjusting the colorspace if necessary,
+   * both colors will be aligned
+   */
+  blend(other: Color, f: number, blendMode?: BlendMode): Color {
+    const colorspace = blendMode ? BlendModeColorSpaceMap[blendMode] : this.colorspace;
+    if (colorspace === undefined) throw new Error(`Unknown colorspace '${colorspace}'`);
+
+    // If colors are already in the target colorspace then it's a no-op
+    return this.mapTo(colorspace)._blend(other.mapTo(colorspace), f, blendMode ?? colorspace);
+  }
+
+  protected abstract _blend(other: Color, f: number, blendMode: BlendMode): Color;
 }

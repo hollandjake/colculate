@@ -1,6 +1,7 @@
-import {ColorSpace, Format} from '../../types';
+import {ColorSpace, Format, SRGBBlendMode} from '../../types';
 import {clamp01} from '../../utils';
 import {Color} from '../color';
+import {hslBlend, hwbBlend, rgbBlend} from './blend';
 import {SRGBToHEXString, SRGBToHSLString, SRGBToHWBString, SRGBToRGBString, SRGBToString} from './stringify';
 
 /**
@@ -47,6 +48,19 @@ export class SRGB extends Color {
         return SRGBToHWBString(this);
       default:
         throw new Error(`Invalid format option '${format}'`);
+    }
+  }
+
+  protected _blend(other: SRGB, f: number, blendMode: SRGBBlendMode): SRGB {
+    switch (blendMode) {
+      case 'sRGB':
+      case 'rgb':
+      case 'hex':
+        return rgbBlend(this, other, f);
+      case 'hsl':
+        return hslBlend(this, other, f);
+      case 'hwb':
+        return hwbBlend(this, other, f);
     }
   }
 }

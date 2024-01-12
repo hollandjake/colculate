@@ -1,10 +1,10 @@
 /**
  * The types as defined in the CSS color spec https://www.w3.org/TR/css-color-4
  */
-import {AlphaValue, AlphaValueOrNone, Hue, HueOrNone, NumberOrNone, OWS, PercentageOrNone, WS} from './css';
-import {Percentage} from './percentage';
+import {AlphaValue, AlphaValueOrNone, Hue, HueOrNone, NumberOrNone, OWS, PercentageOrNone, WS} from '../css';
+import {Percentage} from '../percentage';
 
-export type SRGBFormat = 'sRGB' | 'hex' | 'rgb' | 'hsl' | 'hwb';
+export type SRGBBlendMode = 'sRGB' | 'hex' | 'rgb' | 'hsl' | 'hwb';
 
 export type rgb = rgb_color4 | rgb_legacy;
 type rgb_color4 =
